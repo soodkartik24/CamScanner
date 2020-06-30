@@ -127,9 +127,9 @@ public class MyDocFragment extends Fragment implements View.OnClickListener {
         }
 
         try {
-
-            fOut.close();
-
+            if (fOut != null) {
+                fOut.close();
+            }
         } catch (IOException ioe) {
         }
 
@@ -142,7 +142,7 @@ public class MyDocFragment extends Fragment implements View.OnClickListener {
         }
         switch (v.getId()) {
             case R.id.cameraBt:
-                Intent iCamera=new Intent(getActivity(), ImageCaptureActivity.class);
+                Intent iCamera = new Intent(getActivity(), ImageCaptureActivity.class);
                 startActivity(iCamera);
                 break;
             case R.id.editBt:
